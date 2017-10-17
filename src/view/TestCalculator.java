@@ -40,6 +40,9 @@ public class TestCalculator
 			bewerkingen.add(input);
 		}
 		int index = random.nextInt(bewerkingen.size());
+		if (index == 0) {
+			++index;
+		}
 		calculator = new Calculator();
 		/* Exception in thread "main" java.lang.IllegalArgumentException: bound must be positive
 	at java.util.Random.nextInt(Unknown Source)
