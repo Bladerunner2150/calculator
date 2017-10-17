@@ -9,6 +9,7 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 import model.Calculator;
+import util.Generator;
 
 /**
  * @author Bart Taelemans & Thomas Vanden Bossche
@@ -30,9 +31,9 @@ public class TestCalculator {
 		String userinput = " ";
 		ArrayList<Character> bewerkingen = new ArrayList<>();
 
-		numberCalculations = Integer
-				.parseInt(JOptionPane.showInputDialog("Geef het aantal bewerkingen in: max 4 [*, /, +, -]"));
-		// direct parsen bij input gedaan 
+		userinput = JOptionPane.showInputDialog("Geef het aantal bewerkingen in: max 4 [*, /, +, -]");
+		numberCalculations = Integer.parseInt(userinput);
+		// direct parsen bij input gedaan
 		numberCalculations = Integer.parseInt(userinput);
 		for (int i = 0; i < numberCalculations; i++) {
 			userinput = JOptionPane.showInputDialog("Geef berekening in: ");
@@ -52,6 +53,7 @@ public class TestCalculator {
 		// foutmelding bij runnen calculator.result();
 		// => opgelost
 		JOptionPane.showMessageDialog(null, calculator.result(2, 2, bewerkingen.get(random.nextInt(index))));
+		JOptionPane.showMessageDialog(null, Generator.NegatieveBoodschap(random.nextInt(3)));
 
 	}
 

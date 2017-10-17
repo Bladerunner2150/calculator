@@ -13,5 +13,16 @@ import java.util.Random;
  *
  */
 public class Generator {
-
+	Random random = new Random();
+	
+	public static String PositieveBoodschap (int keuze) {
+		PositiveMessagesEnum message = PositiveMessagesEnum.values()[keuze];
+		String result = message.getTekst();
+		return result;
+	}
+	public static String NegatieveBoodschap (int keuze) {
+		NegativeMessagesEnum message = NegativeMessagesEnum.values()[keuze];
+		String result = message.getTekst();
+		return result;
+	}
 }
