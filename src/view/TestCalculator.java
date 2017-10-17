@@ -48,6 +48,7 @@ public class TestCalculator
 	at java.util.Random.nextInt(Unknown Source)
 	at view.TestCalculator.main(TestCalculator.java:45)*/
 		// foutmelding bij runnen calculator.result();
+		//=> opgelost 
 		JOptionPane.showMessageDialog(null, calculator.result(2, 2, bewerkingen.get(random.nextInt(index))));
 		
 	}
