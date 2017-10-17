@@ -15,6 +15,7 @@ import java.util.Random;
 public class Generator {
 	Random random = new Random();
 	
+	//willekeurige berichten geven uit de enumeraties
 	public static String PositieveBoodschap (int keuze) {
 		PositiveMessagesEnum message = PositiveMessagesEnum.values()[keuze];
 		String result = message.getTekst();

@@ -14,6 +14,7 @@ public enum PositiveMessagesEnum {
 	bericht3("flink zo"),
 	bericht4("dat is correct! :)");
 
+	// enumeratie om berichten bij een correcte oplossing te tonen
 	private String tekst;
 
 	public String getTekst() {

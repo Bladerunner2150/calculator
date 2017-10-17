@@ -11,6 +11,7 @@ public enum NegativeMessagesEnum {
 	bericht1("Helaas dit is niet correct"),
 	bericht2("Niet juist, Spijtig"),
 	bericht3("Sorry dit is fout "); 
+	// enumeratie om berichten bij een foute oplossing te tonen
 
 	public String tekst;
 
