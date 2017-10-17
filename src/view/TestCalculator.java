@@ -17,22 +17,22 @@ import model.Calculator;
  * @purpose Test calculator
  *
  */
-public class TestCalculator
-{
+public class TestCalculator {
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		Random random = new Random();
 		char input;
 		int numberCalculations = 0;
 		Calculator calculator;
 		String userinput = " ";
 		ArrayList<Character> bewerkingen = new ArrayList<>();
-		userinput = JOptionPane.showInputDialog("Geef het aantal bewerkingen in: max 4 [*, /, +, -]");
-		// direct parsen bij input 
+
+		numberCalculations = Integer
+				.parseInt(JOptionPane.showInputDialog("Geef het aantal bewerkingen in: max 4 [*, /, +, -]"));
+		// direct parsen bij input gedaan 
 		numberCalculations = Integer.parseInt(userinput);
 		for (int i = 0; i < numberCalculations; i++) {
 			userinput = JOptionPane.showInputDialog("Geef berekening in: ");
@@ -44,13 +44,15 @@ public class TestCalculator
 			++index;
 		}
 		calculator = new Calculator();
-		/* Exception in thread "main" java.lang.IllegalArgumentException: bound must be positive
-	at java.util.Random.nextInt(Unknown Source)
-	at view.TestCalculator.main(TestCalculator.java:45)*/
+		/*
+		 * Exception in thread "main" java.lang.IllegalArgumentException: bound must be
+		 * positive at java.util.Random.nextInt(Unknown Source) at
+		 * view.TestCalculator.main(TestCalculator.java:45)
+		 */
 		// foutmelding bij runnen calculator.result();
-		//=> opgelost 
+		// => opgelost
 		JOptionPane.showMessageDialog(null, calculator.result(2, 2, bewerkingen.get(random.nextInt(index))));
-		
+
 	}
 
 }
