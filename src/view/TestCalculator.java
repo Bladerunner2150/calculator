@@ -35,6 +35,7 @@ public class TestCalculator {
 		numberCalculations = Integer.parseInt(userinput);
 		// direct parsen bij input gedaan
 		numberCalculations = Integer.parseInt(userinput);
+		
 		for (int i = 0; i < numberCalculations; i++) {
 			userinput = JOptionPane.showInputDialog("Geef berekening in: ");
 			input = userinput.charAt(0);

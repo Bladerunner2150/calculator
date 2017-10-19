@@ -10,7 +10,8 @@ package util;
 public enum NegativeMessagesEnum {
 	bericht1("Helaas dit is niet correct"),
 	bericht2("Niet juist, Spijtig"),
-	bericht3("Sorry dit is fout "); 
+	bericht3("Sorry dit is fout "), 
+	bericht4("Lozer");
 	// enumeratie om berichten bij een foute oplossing te tonen
 
 	public String tekst;
