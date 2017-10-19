@@ -5,6 +5,8 @@ package util;
 
 import java.util.Random;
 
+import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
+
 /**
  * @author Bart Taelemans & Thomas Vanden Bossche
  * @date 9 okt. 2017
@@ -13,15 +15,17 @@ import java.util.Random;
  *
  */
 public class Generator {
-	Random random = new Random();
-	
+	private static Random rand = new Random();
+	static int keuze = 1;
 	//willekeurige berichten geven uit de enumeraties
-	public static String PositieveBoodschap (int keuze) {
+	public static String PositieveBoodschap () {
+		keuze = rand.nextInt(4);
 		PositiveMessagesEnum message = PositiveMessagesEnum.values()[keuze];
 		String result = message.getTekst();
 		return result;
 	}
-	public static String NegatieveBoodschap (int keuze) {
+	public static String NegatieveBoodschap () {
+		keuze = rand.nextInt(4); 
 		NegativeMessagesEnum message = NegativeMessagesEnum.values()[keuze];
 		String result = message.getTekst();
 		return result;

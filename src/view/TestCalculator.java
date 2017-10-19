@@ -53,8 +53,8 @@ public class TestCalculator {
 		 */
 		// foutmelding bij runnen calculator.result();
 		// => opgelost
-		JOptionPane.showMessageDialog(null, calculator.result(2, 2, bewerkingen.get(random.nextInt(index))));
-		JOptionPane.showMessageDialog(null, Generator.NegatieveBoodschap(random.nextInt(3)));
+		JOptionPane.showMessageDialog(null, calculator.result(2, 2, bewerkingen.get(index)));
+		JOptionPane.showMessageDialog(null, Generator.NegatieveBoodschap());
 
 	}
 

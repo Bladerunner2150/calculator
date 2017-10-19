@@ -16,33 +16,30 @@ import util.Generator;
 public class Generator_TEST {
 
 	/**
-	 * Test method for {@link util.Generator#PositieveBoodschap(int)}.
+	 * Test method for {@link util.Generator#PositieveBoodschap()}.
 	 */
-	Random rand = new Random();
-	int c = rand.nextInt(4);
 
+	// test functies om de boodschappen te testen
 
-	
 	@Test
 	public void testPositieveBoodschap() {
 
-		int a = rand.nextInt(4);
-		Generator.PositieveBoodschap(a);
-		
+		Generator.PositieveBoodschap();
 
 	}
 
 	/**
-	 * Test method for {@link util.Generator#NegatieveBoodschap(int)}.
-	 * @return 
+	 * Test method for {@link util.Generator#NegatieveBoodschap()}.
+	 * 
+	 * @return
 	 */
 
 	@Test
 
 	public void testNegatieveBoodschap() {
-		int a = rand.nextInt(4);
-		Generator.NegatieveBoodschap(a);
-		
+
+		Generator.NegatieveBoodschap();
+
 	}
 
 }
