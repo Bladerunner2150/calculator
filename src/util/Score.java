@@ -117,5 +117,18 @@ public class Score
 		}
 		return output;
 	}
+	
+	public String Eindresultaat() {
+		int i = 0;
+		int juist = 0;
+		for (Score score : ScoreList) {
+			++i;
+			if (score.oplossing == score.userGetal) {
+				++juist;
+			}
+		}
+		String beschrijving = "Je hebt "+juist+"/"+i+"behaald";
+		return beschrijving;
+	}
 
 }

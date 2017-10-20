@@ -5,8 +5,6 @@ package util;
 
 import java.util.Random;
 
-import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
-
 /**
  * @author Bart Taelemans & Thomas Vanden Bossche
  * @date 9 okt. 2017

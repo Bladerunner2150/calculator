@@ -33,29 +33,38 @@ public class TestCalculator {
 
 		userinput = JOptionPane.showInputDialog("Geef het aantal bewerkingen in: max 4 [*, /, +, -]");
 		numberCalculations = Integer.parseInt(userinput);
-		// direct parsen bij input gedaan
 		numberCalculations = Integer.parseInt(userinput);
 		
+		// al deze code ga ik nog proberen zoveel mogelijk in een klasse te steken en uit de test te halen
 		for (int i = 0; i < numberCalculations; i++) {
 			userinput = JOptionPane.showInputDialog("Geef berekening in: ");
 			input = userinput.charAt(0);
-			bewerkingen.add(input);
+			if (bewerkingen.isEmpty() == true) {
+				bewerkingen.add(input);
+			} else {
+
+				// If- statement om te controleren of ze niet twee keer dezelfde bewerking ingeven
+				if (bewerkingen.contains(input) == true) {
+
+					JOptionPane.showMessageDialog(null, "Geef ander bewerking in ");
+					// eentje aftrekken bij "i" omdat de for-loop anders stopt
+					i--;
+				}
+				else {
+					bewerkingen.add(input);
+				}
+
+			}
 		}
+
 		int index = random.nextInt(bewerkingen.size());
 		if (index == 0) {
 			++index;
 		}
 		calculator = new Calculator();
-		/*
-		 * Exception in thread "main" java.lang.IllegalArgumentException: bound must be
-		 * positive at java.util.Random.nextInt(Unknown Source) at
-		 * view.TestCalculator.main(TestCalculator.java:45)
-		 */
-		// foutmelding bij runnen calculator.result();
-		// => opgelost
-		JOptionPane.showMessageDialog(null, calculator.result(2, 2, bewerkingen.get(index)));
+
+		JOptionPane.showMessageDialog(null, calculator.result(3, 2, bewerkingen.get(index)));
 		JOptionPane.showMessageDialog(null, Generator.NegatieveBoodschap());
 
 	}
-
 }
