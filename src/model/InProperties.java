@@ -18,7 +18,7 @@ public class InProperties
 	private int rangeOfNumbers;
 	private boolean positiveNumbers;
 	private boolean naturalNumbers;
-	private List<Character> calculations = Arrays.asList('+', '-', '/', '*', '^');
+	private List<Character> calculations /*= Arrays.asList('+', '-', '/', '*', '^')*/;
 	private int multiplyTable;
 	private int numberOfExercises;
 
