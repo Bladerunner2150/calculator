@@ -69,4 +69,17 @@ public class Generator {
 		int a = randomGeheelGetal() * (-1);
 		return a;
 	}
+	
+	public double randomNegatiefReëlGetal(int bereik) {
+		double a = randomReëlGetal(bereik) * (-1);
+		return a;
+	}
+	
+	public double randomNegatiefReëlGetal() {
+		double a = randomReëlGetal() * (-1);
+		return a;
+	}
+//	public double RandomGetal() {
+//		
+//	}
 }
