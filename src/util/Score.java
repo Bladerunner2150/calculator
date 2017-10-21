@@ -118,17 +118,42 @@ public class Score
 		return output;
 	}
 	
-	public String Eindresultaat() {
-		int i = 0;
-		int juist = 0;
-		for (Score score : ScoreList) {
-			++i;
-			if (score.oplossing == score.userGetal) {
-				++juist;
+// Onderstaande String vervangen door aparte method en info weergeven in ToString
+	
+//	public String Eindresultaat() {
+//		int i = 0;
+//		int juist = 0;
+//		for (Score score : ScoreList) {
+//			++i;
+//			if (score.oplossing == score.userGetal) {
+//				++juist;
+//			}
+//		}
+//		String beschrijving = "Je hebt "+juist+"/"+i+"behaald";
+//		return beschrijving;
+//	}
+	
+	public int Eindresultaat () {
+		int aantalJuisteAntwoorden = 0;
+		for (Score score : ScoreList)
+		{
+			if (score.getOplossing() == score.getUserGetal())
+			{
+				++aantalJuisteAntwoorden;
 			}
 		}
-		String beschrijving = "Je hebt "+juist+"/"+i+"behaald";
-		return beschrijving;
+		return aantalJuisteAntwoorden;
 	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "Je hebt " + Eindresultaat() + "/" + ScoreList.size() + " behaald";
+	}
+	
+	
 	
 }
