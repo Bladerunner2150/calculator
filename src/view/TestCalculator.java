@@ -3,6 +3,7 @@
  */
 package view;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -58,13 +59,15 @@ public class TestCalculator {
 		}
 
 		int index = random.nextInt(bewerkingen.size());
-		if (index == 0) {
+		/*if (index == 0) {
 			++index;
-		}
+		}*/
 		calculator = new Calculator();
+		double testgetal = random.nextDouble(); 
 
 		JOptionPane.showMessageDialog(null, calculator.result(3, 2, bewerkingen.get(index)));
 		JOptionPane.showMessageDialog(null, Generator.NegatieveBoodschap());
+		JOptionPane.showMessageDialog(null, testgetal);
 
 	}
 }
