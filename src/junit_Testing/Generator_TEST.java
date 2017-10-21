@@ -8,7 +8,7 @@ import org.junit.Test;
 import util.Generator;
 
 /**
- * @author Thomas
+ * @author Thomas Vanden Bossche & Bart Taelemans
  *
  */
 public class Generator_TEST {
