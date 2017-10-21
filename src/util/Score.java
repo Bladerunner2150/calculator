@@ -4,6 +4,7 @@
 package util;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * @author Bart Taelemans & Thomas Vanden Bossche
@@ -27,7 +28,6 @@ public class Score
 	private double userGetal;
 	private double oplossing;
 	private char bewerking;
-	
 	/**
 	 * @return the scoreList
 	 */
@@ -130,5 +130,5 @@ public class Score
 		String beschrijving = "Je hebt "+juist+"/"+i+"behaald";
 		return beschrijving;
 	}
-
+	
 }
