@@ -3,7 +3,6 @@
  */
 package model;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,9 +17,11 @@ public class InProperties
 	private int rangeOfNumbers;
 	private boolean positiveNumbers;
 	private boolean naturalNumbers;
-	private List<Character> calculations /*= Arrays.asList('+', '-', '/', '*', '^')*/;
-	private int multiplyTable;
+	private int cijfersNaKomma;
+	private List<Character> calculations /* = Arrays.asList('+', '-', '/', '*', '^') */;
+	private int multiplyTable; // deze property nog bekijken, user input vragen in main
 	private int numberOfExercises;
+	private String separator = System.lineSeparator();
 
 	/**
 	 * @return the rangeOfNumbers
@@ -74,6 +75,23 @@ public class InProperties
 	}
 
 	/**
+	 * @return the cijfersNaKomma
+	 */
+	public int getCijfersNaKomma()
+	{
+		return cijfersNaKomma;
+	}
+
+	/**
+	 * @param cijfersNaKomma
+	 *            the cijfersNaKomma to set
+	 */
+	public void setCijfersNaKomma(int cijfersNaKomma)
+	{
+		this.cijfersNaKomma = cijfersNaKomma;
+	}
+
+	/**
 	 * @return the calculations
 	 */
 	public List<Character> getCalculations()
@@ -124,17 +142,19 @@ public class InProperties
 		this.numberOfExercises = numberOfExercises;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()
 	{
-		return "Range: " + getRangeOfNumbers() + "| Positive numbers only:" + isPositiveNumbers()
-				+ "| Natural numbers only:" + isNaturalNumbers() + "| Calculations: " + getCalculations() + "| Multiply table: "
-				+ getMultiplyTable() + "| Number of exercises: " + getNumberOfExercises();
+		return "Range: " + getRangeOfNumbers() + separator + "Positive numbers only: " + isPositiveNumbers() + separator
+				+ "Natural numbers only: " + isNaturalNumbers() + separator + "Numbers after decimal point: "
+				+ getCijfersNaKomma() + separator + "Calculations: " + getCalculations() + separator
+				+ "Multiply table: " + getMultiplyTable() + separator + "Number of exercises: "
+				+ getNumberOfExercises();
 	}
-	
-	
 
 }

@@ -75,12 +75,29 @@ public class TestCalculator {
 			properties.setPositiveNumbers(false);
 		}
 		
+		userinput = JOptionPane.showInputDialog("Wil je alleen met gehele getallen rekenen? (j/n)");
+		input = Character.toLowerCase(userinput.charAt(0));
+		if (input == 'j')
+		{
+			properties.setNaturalNumbers(true);
+		}
+		else {
+			properties.setNaturalNumbers(false);
+		}
 		
+		if (!properties.isNaturalNumbers())
+		{
+			userinput = JOptionPane.showInputDialog("Hoeveel cijfers na de komma?");
+			properties.setCijfersNaKomma(Integer.parseInt(userinput));
+		}
+		
+		userinput = JOptionPane.showInputDialog("Hoeveel oefeningen wil je maken?");
+		properties.setNumberOfExercises(Integer.parseInt(userinput));
 		
 		
 		//Alles hieronder is testcode, nog te vervangen door juiste code
 		
-		JOptionPane.showMessageDialog(null, bewerkingen);
+		JOptionPane.showMessageDialog(null, properties.toString());
 		
 
 		int index = random.nextInt(bewerkingen.size());
