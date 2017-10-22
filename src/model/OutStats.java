@@ -15,9 +15,9 @@ import java.util.Date;
 public class OutStats
 {
 	private Date dateOfTest;
-	private int duration;
+	private long duration;
 	private String selections;
-	private int finalResult;
+	private String finalResult;
 	private String separator = System.lineSeparator();
 
 	/**
@@ -40,7 +40,7 @@ public class OutStats
 	/**
 	 * @return the duration
 	 */
-	public int getDuration()
+	public long getDuration()
 	{
 		return duration;
 	}
@@ -49,7 +49,7 @@ public class OutStats
 	 * @param duration
 	 *            the duration to set
 	 */
-	public void setDuration(int duration)
+	public void setDuration(long duration)
 	{
 		this.duration = duration;
 	}
@@ -74,7 +74,7 @@ public class OutStats
 	/**
 	 * @return the finalResult
 	 */
-	public int getFinalResult()
+	public String getFinalResult()
 	{
 		return finalResult;
 	}
@@ -83,7 +83,7 @@ public class OutStats
 	 * @param finalResult
 	 *            the finalResult to set
 	 */
-	public void setFinalResult(int finalResult)
+	public void setFinalResult(String finalResult)
 	{
 		this.finalResult = finalResult;
 	}
@@ -97,8 +97,8 @@ public class OutStats
 	public String toString()
 	{
 		return "Stats:" + separator + separator + "Date and time of test: " + getDateOfTest() + separator
-				+ "Duration of test: " + getDuration() + separator + "Selected properties: " + getSelections()
-				+ separator + "Final result: " + getFinalResult();
+				+ "Duration of test: " + getDuration() + " seconds" + separator + "Selected properties: " + separator
+				+ getSelections() + separator + "Final result: " + getFinalResult();
 	}
 
 }
