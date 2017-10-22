@@ -5,9 +5,6 @@ package util;
 
 import java.util.Random;
 
-import jdk.nashorn.internal.ir.BreakableNode;
-import junit_Testing.Generator_TEST;
-
 /**
  * @author Bart Taelemans & Thomas Vanden Bossche
  * @date 9 okt. 2017
@@ -86,53 +83,130 @@ public class Generator {
 	}
 
 	// grote case om random getallen te genereren op basis van de Properties
-	/*public double RandomGetal(int range, boolean positiveNumbers, boolean naturalnumbers, int tafel,
-			int numberOfExercices) {*/
+	public double RandomGetal(int range, boolean positiveNumbers, boolean naturalnumbers, int tafel,
+			int numberOfExercices) {
 
-		/* met een boolean heb je maar 1 waarde, dan kan je geen reële en gehele getallen door elkaar gebruiken want je kiest altijd een van de twee
-		 zelfde met positief en negatief
-		een boolean is of true of false maar kan niet beide zijn. 
-		of wel zijn alle oefeningen dan negatief of allemaal positief*/
+		int keuze = 0;
+		double a = 0;
 
-		// double a = 0;
-		// if (naturalnumbers==true) {
-		// if (positiveNumbers == true) {
-		// a = randomGeheelGetal(range);
-		// }
-		// else {
-		// a= randomNegatiefGeheelGetal(range);
-		// }
-		// }
-		// if (naturalnumbers == false) {
-		// if (positiveNumbers == true) {
-		// a = randomReëlGetal(range);
-		// }
-		// else {
-		// a = randomNegatiefReëlGetal(range);
-		// }
-		// }
-		//
-		// return a;
+		if (positiveNumbers == true && naturalnumbers == true) {
+			a = randomGeheelGetal(range);
+		}
+
+		if (positiveNumbers == false && naturalnumbers == true) {
+
+			keuze = rand.nextInt(2);
+			switch (keuze) {
+			case 0:
+				a = randomGeheelGetal(range);
+
+				break;
+			case 1:
+				a = randomNegatiefGeheelGetal(range);
+				break;
+			}
+		}
+
+		if (positiveNumbers == true && naturalnumbers == false) {
+			keuze = rand.nextInt(2);
+
+			switch (keuze) {
+			case 0:
+				a = randomGeheelGetal(range);
+
+				break;
+			case 1:
+				a = randomReëlGetal(range);
+				break;
+
+			}
+		}
+		if (positiveNumbers == false && naturalnumbers == false) {
+			keuze = rand.nextInt(4);
+			switch (keuze) {
+			case 0:
+				a = randomGeheelGetal(range);
+				break;
+			case 1:
+				a = randomNegatiefGeheelGetal(range);
+				break;
+
+			case 2:
+				a = randomReëlGetal(range);
+				break;
+
+			case 3:
+
+				a = randomNegatiefReëlGetal(range);
+				break;
+
+			}
+		}
+
+		return a;
 	}
 
-	// public double RandomGetal(boolean positiveNumbers, boolean naturalnumbers,
-	// int tafel, int numberOfExercices) {
-	// double a = 0;
-	// if (naturalnumbers == true) {
-	// if (positiveNumbers == true) {
-	// a = randomGeheelGetal();
-	// } else {
-	// a = randomNegatiefGeheelGetal();
-	// }
-	// }
-	// if (naturalnumbers == false) {
-	// if (positiveNumbers == true) {
-	// a = randomReëlGetal();
-	// } else {
-	// a = randomNegatiefReëlGetal();
-	// }
-	// }
-	//
-	// return a;
-	// }
+	// grote case om random getallen te genereren op basis van de Properties zonder
+	// ranges
+	public double RandomGetal(boolean positiveNumbers, boolean naturalnumbers, int tafel, int numberOfExercices) {
 
+		int keuze = 0;
+		double a = 0;
+
+		if (positiveNumbers == true && naturalnumbers == true) {
+			a = randomGeheelGetal();
+		}
+
+		if (positiveNumbers == false && naturalnumbers == true) {
+
+			keuze = rand.nextInt(2);
+			switch (keuze) {
+			case 0:
+				a = randomGeheelGetal();
+
+				break;
+			case 1:
+				a = randomNegatiefGeheelGetal();
+				break;
+			}
+		}
+
+		if (positiveNumbers == true && naturalnumbers == false) {
+			keuze = rand.nextInt(2);
+
+			switch (keuze) {
+			case 0:
+				a = randomGeheelGetal();
+
+				break;
+			case 1:
+				a = randomReëlGetal();
+				break;
+
+			}
+		}
+		if (positiveNumbers == false && naturalnumbers == false) {
+			keuze = rand.nextInt(4);
+			switch (keuze) {
+			case 0:
+				a = randomGeheelGetal();
+				break;
+			case 1:
+				a = randomNegatiefGeheelGetal();
+				break;
+
+			case 2:
+				a = randomReëlGetal();
+				break;
+
+			case 3:
+
+				a = randomNegatiefReëlGetal();
+				break;
+
+			}
+		}
+
+		return a;
+	}
+}
