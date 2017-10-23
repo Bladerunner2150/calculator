@@ -146,7 +146,8 @@ public class TestCalculator
 			score.setGetal2(randomgetal2); // is dit wel nodig? Zie comment hierboven
 			double result = calculator.result(randomgetal1, randomgetal2, calculation);
 			score.setOplossing(result);
-			userinput = JOptionPane.showInputDialog("Hoeveel is " + randomgetal1 + calculation + randomgetal2 + " ?");
+			userinput = JOptionPane.showInputDialog("Oefening " + (i+1) + "/" + properties.getNumberOfExercises()
+					+ ": Hoeveel is " + randomgetal1 + calculation + randomgetal2 + " ?");
 			double answer = Double.parseDouble(userinput);
 			score.setUserGetal(answer);
 
