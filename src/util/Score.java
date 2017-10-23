@@ -22,11 +22,8 @@ public class Score
 	 * vergelijken met de juiste oplossing van de oefening
 	 * 
 	 */
-	private double getal1;
-	private double getal2;
 	private double userGetal;
 	private double oplossing;
-	private char bewerking;
 	private int aantalJuisteAntwoorden; // toegevoegd om dit zo bij te houden via method compareScore ipv met aparte
 										// method
 
@@ -45,57 +42,6 @@ public class Score
 	public void setScoreList(ArrayList<Score> scoreList)
 	{
 		ScoreList = scoreList;
-	}
-
-	/**
-	 * @return the bewerking
-	 */
-	public char getBewerking()
-	{
-		return bewerking;
-	}
-
-	/**
-	 * @param bewerking
-	 *            the bewerking to set
-	 */
-	public void setBewerking(char bewerking)
-	{
-		this.bewerking = bewerking;
-	}
-
-	/**
-	 * @return the getal1
-	 */
-	public double getGetal1()
-	{
-		return getal1;
-	}
-
-	/**
-	 * @param getal1
-	 *            the getal1 to set
-	 */
-	public void setGetal1(double getal1)
-	{
-		this.getal1 = getal1;
-	}
-
-	/**
-	 * @return the getal2
-	 */
-	public double getGetal2()
-	{
-		return getal2;
-	}
-
-	/**
-	 * @param getal2
-	 *            the getal2 to set
-	 */
-	public void setGetal2(double getal2)
-	{
-		this.getal2 = getal2;
 	}
 
 	/**
@@ -171,35 +117,6 @@ public class Score
 		}
 		return output;
 	}
-
-	// Onderstaande String vervangen door aparte method en info weergeven in
-	// ToString
-
-	// public String Eindresultaat() {
-	// int i = 0;
-	// int juist = 0;
-	// for (Score score : ScoreList) {
-	// ++i;
-	// if (score.oplossing == score.userGetal) {
-	// ++juist;
-	// }
-	// }
-	// String beschrijving = "Je hebt "+juist+"/"+i+"behaald";
-	// return beschrijving;
-	// }
-
-	// public int Eindresultaat()
-	// {
-	// int aantalJuisteAntwoorden = 0;
-	// for (Score score : ScoreList)
-	// {
-	// if (score.getOplossing() == score.getUserGetal())
-	// {
-	// aantalJuisteAntwoorden++;
-	// }
-	// }
-	// return aantalJuisteAntwoorden;
-	// }
 
 	/*
 	 * (non-Javadoc)

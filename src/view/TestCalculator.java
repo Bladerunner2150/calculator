@@ -3,7 +3,6 @@
  */
 package view;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -36,149 +35,165 @@ public class TestCalculator
 		Random random = new Random();
 		char input;
 		String userinput = " ";
+		int tafel = 0;
+		boolean tafelOefening = false;
 
 		int numberCalculations = 0;
 		ArrayList<Character> bewerkingen = new ArrayList<>();
 
 		Calculator calculator = new Calculator();
-		InProperties properties = new InProperties();
+		InProperties properties = null;
 		OutStats stats = new OutStats();
 		Generator generator = new Generator();
 		Score score = new Score();
 
-		userinput = JOptionPane.showInputDialog("Geef het aantal bewerkingen in: max 4 [*, /, +, -]");
-		numberCalculations = Integer.parseInt(userinput);
+		// loop voor nieuwe oefening: alle variabelen leegmaken
 
-		// al deze code ga ik nog proberen zoveel mogelijk in een klasse te steken en
-		// uit de test te halen
-
-		List<String> rangtelwoorden = Arrays.asList("eerste", "tweede", "derde", "vierde");
-		for (int i = 0; i < numberCalculations; i++)
+		userinput = JOptionPane.showInputDialog(
+				"Wat wil je doen?\n1. Bestaande settings inladen van een file\n2. Nieuwe settings ingeven\n3. Tafels oefenen");
+		switch (userinput)
 		{
-			userinput = JOptionPane.showInputDialog("Geef " + rangtelwoorden.get(i) + " bewerking in: ");
-			input = userinput.charAt(0);
-			if (bewerkingen.isEmpty() == true)
-			{
-				bewerkingen.add(input);
-			} 
-			else
-			{
+		case "1":
+			JOptionPane.showMessageDialog(null, "To implement import of file");
+			break;
+		case "2":
+			properties = new InProperties();
+			userinput = JOptionPane.showInputDialog("Geef het aantal bewerkingen in: max 4 [*, /, +, -]");
+			numberCalculations = Integer.parseInt(userinput);
 
-				// If- statement om te controleren of ze niet twee keer dezelfde bewerking
-				// ingeven
-				if (bewerkingen.contains(input) == true)
-				{
-
-					JOptionPane.showMessageDialog(null, "Geef andere bewerking in ");
-					// eentje aftrekken bij "i" omdat de for-loop anders stopt
-					i--;
-				} else
+			List<String> rangtelwoorden = Arrays.asList("eerste", "tweede", "derde", "vierde");
+			for (int i = 0; i < numberCalculations; i++)
+			{
+				userinput = JOptionPane.showInputDialog("Geef " + rangtelwoorden.get(i) + " bewerking in: ");
+				input = userinput.charAt(0);
+				if (bewerkingen.isEmpty() == true)
 				{
 					bewerkingen.add(input);
+				} else
+				{
+
+					// If- statement om te controleren of ze niet twee keer dezelfde bewerking
+					// ingeven
+					if (bewerkingen.contains(input) == true)
+					{
+
+						JOptionPane.showMessageDialog(null, "Geef andere bewerking in ");
+						// eentje aftrekken bij "i" omdat de for-loop anders stopt
+						i--;
+					} else
+					{
+						bewerkingen.add(input);
+					}
 				}
 			}
-		}
-		properties.setCalculations(bewerkingen);
+			properties.setCalculations(bewerkingen);
 
-		userinput = JOptionPane.showInputDialog("Tot welk getal wil je rekenen?");
-		properties.setRangeOfNumbers(Integer.parseInt(userinput));
+			userinput = JOptionPane.showInputDialog("Tot welk getal wil je rekenen?");
+			properties.setRangeOfNumbers(Integer.parseInt(userinput));
 
-		userinput = JOptionPane.showInputDialog("Wil je alleen met positieve getallen rekenen? (j/n)");
-		input = Character.toLowerCase(userinput.charAt(0));
-		if (input == 'j')
-		{
-			properties.setPositiveNumbers(true);
-		} else
-		{
-			properties.setPositiveNumbers(false);
-		}
-
-		userinput = JOptionPane.showInputDialog("Wil je alleen met gehele getallen rekenen? (j/n)");
-		input = Character.toLowerCase(userinput.charAt(0));
-		if (input == 'j')
-		{
-			properties.setNaturalNumbers(true);
-		} else
-		{
-			properties.setNaturalNumbers(false);
-		}
-
-		if (!properties.isNaturalNumbers())
-		{
-			userinput = JOptionPane.showInputDialog("Hoeveel cijfers na de komma?");
-			properties.setCijfersNaKomma(Integer.parseInt(userinput));
-		}
-
-		if (bewerkingen.contains('*')) // test om te kijken of vermenigvuldigingen in lijst bewerkingen zitten
-		{
-			userinput = JOptionPane.showInputDialog("Wil je ook een tafel berekenen? (j/n)");
+			userinput = JOptionPane.showInputDialog("Wil je alleen met positieve getallen rekenen? (j/n)");
 			input = Character.toLowerCase(userinput.charAt(0));
 			if (input == 'j')
 			{
-				do
-				{
-					userinput = JOptionPane
-							.showInputDialog("Welke tafel wil je berekenen? Geef een cijfer van 1 tot 9");
-					properties.setMultiplyTable(Integer.parseInt(userinput));
-				} while (properties.getMultiplyTable() < 1 || properties.getMultiplyTable() > 9);
+				properties.setPositiveNumbers(true);
+			} else
+			{
+				properties.setPositiveNumbers(false);
 			}
-		}
 
-		userinput = JOptionPane.showInputDialog("Hoeveel oefeningen wil je maken?");
-		properties.setNumberOfExercises(Integer.parseInt(userinput));
+			userinput = JOptionPane.showInputDialog("Wil je alleen met gehele getallen rekenen? (j/n)");
+			input = Character.toLowerCase(userinput.charAt(0));
+			if (input == 'j')
+			{
+				properties.setNaturalNumbers(true);
+			} else
+			{
+				properties.setNaturalNumbers(false);
+			}
+
+			if (!properties.isNaturalNumbers())
+			{
+				userinput = JOptionPane.showInputDialog("Hoeveel cijfers na de komma?");
+				properties.setCijfersNaKomma(Integer.parseInt(userinput));
+			}
+
+			if (bewerkingen.contains('*')) // test om te kijken of vermenigvuldigingen in lijst bewerkingen zitten
+			{
+				userinput = JOptionPane.showInputDialog("Wil je ook een tafel berekenen? (j/n)");
+				input = Character.toLowerCase(userinput.charAt(0));
+				if (input == 'j')
+				{
+					do
+					{
+						userinput = JOptionPane
+								.showInputDialog("Welke tafel wil je berekenen? Geef een cijfer van 1 tot 9");
+						properties.setMultiplyTable(Integer.parseInt(userinput));
+					} while (properties.getMultiplyTable() < 1 || properties.getMultiplyTable() > 9);
+				}
+			}
+
+			userinput = JOptionPane.showInputDialog("Hoeveel oefeningen wil je maken?");
+			properties.setNumberOfExercises(Integer.parseInt(userinput));
+			break;
+		case "3":
+			tafelOefening = true;
+			userinput = JOptionPane.showInputDialog("Welke tafel wil je oefenen?");
+			tafel = Integer.parseInt(userinput);
+			break;
+		default:
+			break;
+		}
 
 		// deze code maakt oefeningen aan, maar moet nog verplaatst worden naar
 		// Generator class en opgekuist worden (in Score moeten getal1 en getal2 nog weg
 		// misschien?)
-
+		
 		long startTime = System.currentTimeMillis();
 		Date currentDate = new Date();
 		stats.setDateOfTest(currentDate);
-		for (int i = 0; i < properties.getNumberOfExercises(); i++)
+		
+		if (tafelOefening)
 		{
-			int index = random.nextInt(properties.getCalculations().size());
-			char calculation = properties.getCalculations().get(index);
-			score.setBewerking(calculation);
-			double randomgetal1 = generator.RandomGetal(properties.getRangeOfNumbers(), properties.isPositiveNumbers(),
-					properties.isNaturalNumbers(), properties.getMultiplyTable(), properties.getNumberOfExercises());
-			score.setGetal1(randomgetal1); // is dit wel nodig? Zie comment hierboven
-			double randomgetal2 = generator.RandomGetal(properties.getRangeOfNumbers(), properties.isPositiveNumbers(),
-					properties.isNaturalNumbers(), properties.getMultiplyTable(), properties.getNumberOfExercises());
-			score.setGetal2(randomgetal2); // is dit wel nodig? Zie comment hierboven
-			double result = calculator.result(randomgetal1, randomgetal2, calculation);
-			score.setOplossing(result);
-			userinput = JOptionPane.showInputDialog("Oefening " + (i+1) + "/" + properties.getNumberOfExercises()
-					+ ": Hoeveel is " + randomgetal1 + calculation + randomgetal2 + " ?");
-			double answer = Double.parseDouble(userinput);
-			score.setUserGetal(answer);
+			for (int i = 1; i <= 10; i++)
+			{
+				double oplossing = calculator.result(i, tafel, '*');
+				score.setOplossing(oplossing);
+				userinput = JOptionPane.showInputDialog("Hoeveel is " + i + "*" + tafel + " ?");
+				double answer = Double.parseDouble(userinput);
+				score.setUserGetal(answer);
+				score.AddScore(score);
+				JOptionPane.showMessageDialog(null, score.compareScore(score));
+			}
+			stats.setSelections("Tafel van " + tafel);
+		}
+		
+		else {
+			for (int i = 0; i < properties.getNumberOfExercises(); i++)
+			{
+				int index = random.nextInt(properties.getCalculations().size());
+				char calculation = properties.getCalculations().get(index);
+				double randomgetal1 = generator.RandomGetal(properties.getRangeOfNumbers(), properties.isPositiveNumbers(),
+						properties.isNaturalNumbers(), properties.getMultiplyTable(), properties.getNumberOfExercises());
+				double randomgetal2 = generator.RandomGetal(properties.getRangeOfNumbers(), properties.isPositiveNumbers(),
+						properties.isNaturalNumbers(), properties.getMultiplyTable(), properties.getNumberOfExercises());
+				double result = calculator.result(randomgetal1, randomgetal2, calculation);
+				score.setOplossing(result);
+				userinput = JOptionPane.showInputDialog("Oefening " + (i + 1) + "/" + properties.getNumberOfExercises()
+						+ ": Hoeveel is " + randomgetal1 + calculation + randomgetal2 + " ?");
+				double answer = Double.parseDouble(userinput);
+				score.setUserGetal(answer);
 
-			// onderstaande regels kunnen misschien vereenvoudigd worden, misschien met
-			// factory of zo, of getters en setters?
-			score.AddScore(score);
-			JOptionPane.showMessageDialog(null, score.compareScore(score));
+				// onderstaande regels kunnen misschien vereenvoudigd worden, misschien met
+				// factory of zo, of getters en setters?
+				score.AddScore(score);
+				JOptionPane.showMessageDialog(null, score.compareScore(score));
+			}
+			stats.setSelections(properties.toString());
 		}
 		long elapsedTimeInSeconds = (System.currentTimeMillis() - startTime) / 1000;
 		stats.setDuration(elapsedTimeInSeconds); // dit eventueel nog omzetten naar minuten en seconden
-		stats.setSelections(properties.toString());
 		stats.setFinalResult(score.getAantalJuisteAntwoorden() + "/" + score.getScoreList().size());
 		JOptionPane.showMessageDialog(null, score.toString());
 		JOptionPane.showMessageDialog(null, stats.toString());
-
-		// Alles hieronder is testcode, nog te vervangen door juiste code of te
-		// verwijderen
-
-		// JOptionPane.showMessageDialog(null, properties.toString());
-		//
-		// int index = random.nextInt(bewerkingen.size());
-		// /*
-		// * if (index == 0) { ++index; }
-		// */
-		// double testgetal = random.nextDouble();
-		//
-		// JOptionPane.showMessageDialog(null, calculator.result(3, 2,
-		// bewerkingen.get(index)));
-		// JOptionPane.showMessageDialog(null, Generator.NegatieveBoodschap());
-		// JOptionPane.showMessageDialog(null, testgetal);
-
 	}
 }
