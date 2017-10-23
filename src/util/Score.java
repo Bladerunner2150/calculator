@@ -167,7 +167,7 @@ public class Score
 		}
 		if (b.oplossing != b.userGetal)
 		{
-			output = Generator.NegatieveBoodschap();
+			output = Generator.NegatieveBoodschap() + " - Het juiste antwoord was: " + b.getOplossing();
 		}
 		return output;
 	}
