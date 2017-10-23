@@ -60,7 +60,8 @@ public class TestCalculator
 			if (bewerkingen.isEmpty() == true)
 			{
 				bewerkingen.add(input);
-			} else
+			} 
+			else
 			{
 
 				// If- statement om te controleren of ze niet twee keer dezelfde bewerking
