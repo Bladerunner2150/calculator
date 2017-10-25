@@ -172,10 +172,8 @@ public class TestCalculator
 			{
 				int index = random.nextInt(properties.getCalculations().size());
 				char calculation = properties.getCalculations().get(index);
-				double randomgetal1 = generator.RandomGetal(properties.getRangeOfNumbers(), properties.isPositiveNumbers(),
-						properties.isNaturalNumbers(), properties.getMultiplyTable(), properties.getNumberOfExercises());
-				double randomgetal2 = generator.RandomGetal(properties.getRangeOfNumbers(), properties.isPositiveNumbers(),
-						properties.isNaturalNumbers(), properties.getMultiplyTable(), properties.getNumberOfExercises());
+				double randomgetal1 = generator.RandomGetal(properties);
+				double randomgetal2 = generator.RandomGetal(properties);
 				double result = calculator.result(randomgetal1, randomgetal2, calculation);
 				score.setOplossing(result);
 				userinput = JOptionPane.showInputDialog("Oefening " + (i + 1) + "/" + properties.getNumberOfExercises()
