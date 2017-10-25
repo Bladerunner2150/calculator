@@ -3,6 +3,7 @@
  */
 package util;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 import model.InProperties;
@@ -180,6 +181,7 @@ public class Generator {
 				break;
 			case 1:
 				a = randomReëlGetal();
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 
 			}
@@ -196,17 +198,30 @@ public class Generator {
 
 			case 2:
 				a = randomReëlGetal();
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 
 			case 3:
 
 				a = randomNegatiefReëlGetal();
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 
 			}
 		}
 
 		return a;
+	}
+	
+	// om getallen na de komma te beperken
+	private String formatGetal(double a, int aantal) {
+		String form = " ";
+	  for (int i=0;i<aantal;++i) {
+		  form+="#";
+	  }
+		DecimalFormat format = new DecimalFormat("00."+form);
+		String b =format.format(a);
+		return b;
 	}
 	
 }
