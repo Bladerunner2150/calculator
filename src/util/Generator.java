@@ -36,6 +36,7 @@ public class Generator {
 
 	// functie om een willekeurig geheel getal te maken met een vooropgesteld bereik
 	private int randomGeheelGetal(int bereik) {
+		
 		int a = rand.nextInt(bereik);
 		return a;
 	}
@@ -124,7 +125,7 @@ public class Generator {
 			}
 		}
 		if (c.isPositiveNumbers() == false && c.isNaturalNumbers() == false) {
-			keuze = rand.nextInt(4);
+			keuze = rand.nextInt(3);
 			switch (keuze) {
 			case 0:
 				a = randomGeheelGetal(c.getRangeOfNumbers());
