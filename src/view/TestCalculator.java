@@ -77,10 +77,12 @@ public class TestCalculator
 			properties.setPositiveNumbers(Boolean.parseBoolean(props.getProperty("positive")));
 			properties.setNaturalNumbers(Boolean.parseBoolean(props.getProperty("natural")));
 			properties.setCijfersNaKomma(Integer.parseInt(props.getProperty("decimals")));
-			bewerkingen.add((props.getProperty("calc1")).charAt(0));
-			bewerkingen.add((props.getProperty("calc2")).charAt(0));
-			bewerkingen.add((props.getProperty("calc3")).charAt(0));
-			bewerkingen.add((props.getProperty("calc4")).charAt(0));
+			int calc = props.getProperty("calc").length();
+			for (int i = 0; i < calc; i++)
+			{
+				input = props.getProperty("calc").charAt(i);
+				bewerkingen.add(input);
+			}
 			properties.setCalculations(bewerkingen);
 			properties.setMultiplyTable(Integer.parseInt(props.getProperty("multiplytable")));
 			properties.setNumberOfExercises(Integer.parseInt(props.getProperty("numberofexercises")));
