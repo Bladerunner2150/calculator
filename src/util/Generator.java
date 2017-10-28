@@ -81,6 +81,7 @@ public class Generator {
 	}
 
 	// negatief reël getal genereren zonder bereik
+	@SuppressWarnings("unused")
 	private double randomNegatiefReëlGetal() {
 		double a = randomReëlGetal(101) * (-1);
 		return a;
@@ -91,10 +92,11 @@ public class Generator {
 
 		int keuze = 0;
 		double a = 0;
+		double b = 0;
 
 		if (c.isPositiveNumbers() == true && c.isNaturalNumbers() == true) {
 			a = randomGeheelGetal(c.getRangeOfNumbers());
-		}
+			}
 
 		if (c.isPositiveNumbers() == false && c.isNaturalNumbers() == true) {
 
@@ -102,10 +104,11 @@ public class Generator {
 			switch (keuze) {
 			case 0:
 				a = randomGeheelGetal(c.getRangeOfNumbers());
-
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 			case 1:
 				a = randomNegatiefGeheelGetal(c.getRangeOfNumbers());
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 			}
 		}
@@ -116,10 +119,12 @@ public class Generator {
 			switch (keuze) {
 			case 0:
 				a = randomGeheelGetal(c.getRangeOfNumbers());
+				formatGetal(a, c.getCijfersNaKomma());
 
 				break;
 			case 1:
 				a = randomReëlGetal(c.getRangeOfNumbers());
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 
 			}
@@ -129,82 +134,21 @@ public class Generator {
 			switch (keuze) {
 			case 0:
 				a = randomGeheelGetal(c.getRangeOfNumbers());
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 			case 1:
 				a = randomNegatiefGeheelGetal(c.getRangeOfNumbers());
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 
 			case 2:
 				a = randomReëlGetal(c.getRangeOfNumbers());
+				formatGetal(a, c.getCijfersNaKomma());
 				break;
 
 			case 3:
 
 				a = randomNegatiefReëlGetal(c.getRangeOfNumbers());
-				break;
-
-			}
-		}
-
-		return a;
-	}
-
-	public double RandomGetalZonderRange(InProperties c) {
-
-		int keuze = 0;
-		double a = 0;
-
-		if (c.isPositiveNumbers() == true && c.isNaturalNumbers() == true) {
-			a = randomGeheelGetal(c.getRangeOfNumbers());
-		}
-
-		if (c.isPositiveNumbers() == false && c.isNaturalNumbers() == true) {
-
-			keuze = rand.nextInt(2);
-			switch (keuze) {
-			case 0:
-				a = randomGeheelGetal();
-
-				break;
-			case 1:
-				a = randomNegatiefGeheelGetal();
-				break;
-			}
-		}
-
-		if (c.isPositiveNumbers() == true && c.isNaturalNumbers() == false) {
-			keuze = rand.nextInt(2);
-
-			switch (keuze) {
-			case 0:
-				a = randomGeheelGetal();
-
-				break;
-			case 1:
-				a = randomReëlGetal();
-				formatGetal(a, c.getCijfersNaKomma());
-				break;
-
-			}
-		}
-		if (c.isPositiveNumbers() == false && c.isNaturalNumbers() == false) {
-			keuze = rand.nextInt(4);
-			switch (keuze) {
-			case 0:
-				a = randomGeheelGetal();
-				break;
-			case 1:
-				a = randomNegatiefGeheelGetal();
-				break;
-
-			case 2:
-				a = randomReëlGetal();
-				formatGetal(a, c.getCijfersNaKomma());
-				break;
-
-			case 3:
-
-				a = randomNegatiefReëlGetal();
 				formatGetal(a, c.getCijfersNaKomma());
 				break;
 
@@ -213,11 +157,13 @@ public class Generator {
 
 		return a;
 	}
+
+
 	
 	// om getallen na de komma te beperken
 	private String formatGetal(double a, int aantal) {
-		String form = " ";
-	  for (int i=0;i<aantal;++i) {
+		String form = "";
+	  for (int i=1;i<aantal;++i) {
 		  form+="#";
 	  }
 		DecimalFormat format = new DecimalFormat("00."+form);
