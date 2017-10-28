@@ -3,10 +3,14 @@
  */
 package view;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -55,7 +59,31 @@ public class TestCalculator
 		switch (userinput)
 		{
 		case "1":
-			JOptionPane.showMessageDialog(null, "To implement import of file");
+			Properties props = new Properties();
+			properties = new InProperties();
+			try
+			{
+				FileInputStream inputProps = new FileInputStream("calculatorDefault.properties");
+				props.load(inputProps);
+				inputProps.close();
+				
+			} catch (FileNotFoundException e)
+			{
+				JOptionPane.showMessageDialog(null, "File not found");
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			properties.setRangeOfNumbers(Integer.parseInt(props.getProperty("range")));
+			properties.setPositiveNumbers(Boolean.parseBoolean(props.getProperty("positive")));
+			properties.setNaturalNumbers(Boolean.parseBoolean(props.getProperty("natural")));
+			properties.setCijfersNaKomma(Integer.parseInt(props.getProperty("decimals")));
+			bewerkingen.add((props.getProperty("calc1")).charAt(0));
+			bewerkingen.add((props.getProperty("calc2")).charAt(0));
+			bewerkingen.add((props.getProperty("calc3")).charAt(0));
+			bewerkingen.add((props.getProperty("calc4")).charAt(0));
+			properties.setCalculations(bewerkingen);
+			properties.setMultiplyTable(Integer.parseInt(props.getProperty("multiplytable")));
+			properties.setNumberOfExercises(Integer.parseInt(props.getProperty("numberofexercises")));
 			break;
 		case "2":
 			properties = new InProperties();
