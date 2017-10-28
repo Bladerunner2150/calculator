@@ -6,6 +6,8 @@ package util;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+import com.sun.javafx.charts.ChartLayoutAnimator;
+
 import model.InProperties;
 
 /**
@@ -36,7 +38,7 @@ public class Generator {
 
 	// functie om een willekeurig geheel getal te maken met een vooropgesteld bereik
 	private int randomGeheelGetal(int bereik) {
-		
+
 		int a = rand.nextInt(bereik);
 		return a;
 	}
@@ -92,11 +94,12 @@ public class Generator {
 
 		int keuze = 0;
 		double a = 0;
-
+		double g = 0;
 
 		if (c.isPositiveNumbers() == true && c.isNaturalNumbers() == true) {
 			a = randomGeheelGetal(c.getRangeOfNumbers());
-			}
+			g = a;
+		}
 
 		if (c.isPositiveNumbers() == false && c.isNaturalNumbers() == true) {
 
@@ -104,11 +107,11 @@ public class Generator {
 			switch (keuze) {
 			case 0:
 				a = randomGeheelGetal(c.getRangeOfNumbers());
-				formatGetal(a, c.getCijfersNaKomma());
+				g = a;
 				break;
 			case 1:
 				a = randomNegatiefGeheelGetal(c.getRangeOfNumbers());
-				formatGetal(a, c.getCijfersNaKomma());
+				g = a;
 				break;
 			}
 		}
@@ -119,12 +122,12 @@ public class Generator {
 			switch (keuze) {
 			case 0:
 				a = randomGeheelGetal(c.getRangeOfNumbers());
-				formatGetal(a, c.getCijfersNaKomma());
+				g = formatGetal(a, c.getCijfersNaKomma());
 
 				break;
 			case 1:
 				a = randomReëlGetal(c.getRangeOfNumbers());
-				formatGetal(a, c.getCijfersNaKomma());
+				g = formatGetal(a, c.getCijfersNaKomma());
 				break;
 
 			}
@@ -134,41 +137,52 @@ public class Generator {
 			switch (keuze) {
 			case 0:
 				a = randomGeheelGetal(c.getRangeOfNumbers());
-				formatGetal(a, c.getCijfersNaKomma());
+				g = formatGetal(a, c.getCijfersNaKomma());
 				break;
 			case 1:
 				a = randomNegatiefGeheelGetal(c.getRangeOfNumbers());
-				formatGetal(a, c.getCijfersNaKomma());
+				g = formatGetal(a, c.getCijfersNaKomma());
+
 				break;
 
 			case 2:
 				a = randomReëlGetal(c.getRangeOfNumbers());
-				formatGetal(a, c.getCijfersNaKomma());
+				g = formatGetal(a, c.getCijfersNaKomma());
 				break;
 
 			case 3:
 
 				a = randomNegatiefReëlGetal(c.getRangeOfNumbers());
-				formatGetal(a, c.getCijfersNaKomma());
+				g = formatGetal(a, c.getCijfersNaKomma());
+
 				break;
 
 			}
 		}
 
-		return a;
+		return g;
 	}
 
-
-	
 	// om getallen na de komma te beperken
-	private String formatGetal(double a, int aantal) {
+	private Double formatGetal(double a, int aantal) {
 		String form = "";
-	  for (int i=1;i<aantal;++i) {
-		  form+="#";
-	  }
-		DecimalFormat format = new DecimalFormat("00."+form);
-		String b =format.format(a);
-		return b;
+		for (int i = 0; i < aantal; ++i) {
+			form += "#";
+		}
+		DecimalFormat format = new DecimalFormat("00." + form);
+		String b = format.format(a);
+		double h = Double.parseDouble(b);
+		return h;
 	}
-	
+
+	public double ControleerGetal(double f, char c) {
+		double j = 0;
+		if (c == '*' || c == '/') {
+			if (f > 10 || f < -10) {
+				j =rand.nextInt(11);
+			}
+		}
+		return j;
+	}
+
 }
