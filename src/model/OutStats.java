@@ -3,7 +3,14 @@
  */
 package model;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
+
+import util.Score;
 
 /**
  * @author Bart Taelemans & Thomas Vanden Bossche
@@ -99,6 +106,13 @@ public class OutStats
 		return "Stats:" + separator + separator + "Date and time of test: " + getDateOfTest() + separator
 				+ "Duration of test: " + getDuration() + " seconds" + separator + "Selected properties: " + separator
 				+ getSelections() + separator + "Final result: " + getFinalResult();
+	}
+	
+	public void ListOut(File f, ArrayList<Score> e) throws IOException {
+		FileOutputStream fileOutputStream = new FileOutputStream(f);
+		@SuppressWarnings({ "unused", "resource" })
+		ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+		objectOutputStream.writeObject(e);
 	}
 
 }

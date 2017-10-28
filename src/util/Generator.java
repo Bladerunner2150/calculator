@@ -92,7 +92,7 @@ public class Generator {
 
 		int keuze = 0;
 		double a = 0;
-		double b = 0;
+
 
 		if (c.isPositiveNumbers() == true && c.isNaturalNumbers() == true) {
 			a = randomGeheelGetal(c.getRangeOfNumbers());

@@ -3,6 +3,7 @@
  */
 package util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * @purpose Keep exercise scores
  *
  */
-public class Score
+public class Score implements Serializable
 {
 
 	ArrayList<Score> ScoreList = new ArrayList<Score>();
