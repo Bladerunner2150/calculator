@@ -5,6 +5,7 @@ package view;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,6 +49,7 @@ public class TestCalculator
 
 		Calculator calculator = new Calculator();
 		InProperties properties = null;
+		Properties props = null;
 		OutStats stats = new OutStats();
 		Generator generator = new Generator();
 		Score score = new Score();
@@ -59,7 +61,7 @@ public class TestCalculator
 		switch (userinput)
 		{
 		case "1":
-			Properties props = new Properties();
+			props = new Properties();
 			properties = new InProperties();
 			try
 			{
@@ -165,6 +167,32 @@ public class TestCalculator
 
 			userinput = JOptionPane.showInputDialog("Hoeveel oefeningen wil je maken?");
 			properties.setNumberOfExercises(Integer.parseInt(userinput));
+			
+			// wegschrijven naar properties file
+			props = new Properties();
+			props.setProperty("range", String.valueOf(properties.getRangeOfNumbers()));
+			props.setProperty("positive", String.valueOf(properties.isPositiveNumbers()));
+			props.setProperty("natural", String.valueOf(properties.isNaturalNumbers()));
+			props.setProperty("decimals", String.valueOf(properties.getCijfersNaKomma()));
+			String calcs = "";
+			for (Character character : properties.getCalculations())
+			{
+				calcs += character;
+			}
+			props.setProperty("calc", calcs);
+			props.setProperty("multiplytable", String.valueOf(properties.getMultiplyTable()));
+			props.setProperty("numberofexercises", String.valueOf(properties.getNumberOfExercises()));
+			try
+			{
+				FileOutputStream output = new FileOutputStream("calculatorDefault.properties");
+				props.store(output, "Opgeslagen selecties");
+				output.close();
+				
+			} catch (IOException e)
+			{
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+			
 			break;
 		case "3":
 			tafelOefening = true;
