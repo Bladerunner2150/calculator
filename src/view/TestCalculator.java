@@ -28,15 +28,12 @@ import util.Score;
  * @purpose Test calculator
  *
  */
-public class TestCalculator
-{
-	
+public class TestCalculator {
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		Random random = new Random();
 		char input;
 		String userinput = " ";
@@ -56,19 +53,16 @@ public class TestCalculator
 
 		userinput = JOptionPane.showInputDialog(
 				"Wat wil je doen?\n1. Bestaande settings inladen van een file\n2. Nieuwe settings ingeven\n3. Tafels oefenen");
-		switch (userinput)
-		{
+		switch (userinput) {
 		case "1":
 			Properties props = new Properties();
 			properties = new InProperties();
-			try
-			{
+			try {
 				FileInputStream inputProps = new FileInputStream("calculatorDefault.properties");
 				props.load(inputProps);
 				inputProps.close();
-				
-			} catch (FileNotFoundException e)
-			{
+
+			} catch (FileNotFoundException e) {
 				JOptionPane.showMessageDialog(null, "File not found");
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
@@ -78,8 +72,7 @@ public class TestCalculator
 			properties.setNaturalNumbers(Boolean.parseBoolean(props.getProperty("natural")));
 			properties.setCijfersNaKomma(Integer.parseInt(props.getProperty("decimals")));
 			int calc = props.getProperty("calc").length();
-			for (int i = 0; i < calc; i++)
-			{
+			for (int i = 0; i < calc; i++) {
 				input = props.getProperty("calc").charAt(i);
 				bewerkingen.add(input);
 			}
@@ -93,26 +86,21 @@ public class TestCalculator
 			numberCalculations = Integer.parseInt(userinput);
 
 			List<String> rangtelwoorden = Arrays.asList("eerste", "tweede", "derde", "vierde");
-			for (int i = 0; i < numberCalculations; i++)
-			{
+			for (int i = 0; i < numberCalculations; i++) {
 				userinput = JOptionPane.showInputDialog("Geef " + rangtelwoorden.get(i) + " bewerking in: ");
 				input = userinput.charAt(0);
-				if (bewerkingen.isEmpty() == true)
-				{
+				if (bewerkingen.isEmpty() == true) {
 					bewerkingen.add(input);
-				} else
-				{
+				} else {
 
 					// If- statement om te controleren of ze niet twee keer dezelfde bewerking
 					// ingeven
-					if (bewerkingen.contains(input) == true)
-					{
+					if (bewerkingen.contains(input) == true) {
 
 						JOptionPane.showMessageDialog(null, "Geef andere bewerking in ");
 						// eentje aftrekken bij "i" omdat de for-loop anders stopt
 						i--;
-					} else
-					{
+					} else {
 						bewerkingen.add(input);
 					}
 				}
@@ -124,26 +112,21 @@ public class TestCalculator
 
 			userinput = JOptionPane.showInputDialog("Wil je alleen met positieve getallen rekenen? (j/n)");
 			input = Character.toLowerCase(userinput.charAt(0));
-			if (input == 'j')
-			{
+			if (input == 'j') {
 				properties.setPositiveNumbers(true);
-			} else
-			{
+			} else {
 				properties.setPositiveNumbers(false);
 			}
 
 			userinput = JOptionPane.showInputDialog("Wil je alleen met gehele getallen rekenen? (j/n)");
 			input = Character.toLowerCase(userinput.charAt(0));
-			if (input == 'j')
-			{
+			if (input == 'j') {
 				properties.setNaturalNumbers(true);
-			} else
-			{
+			} else {
 				properties.setNaturalNumbers(false);
 			}
 
-			if (!properties.isNaturalNumbers())
-			{
+			if (!properties.isNaturalNumbers()) {
 				userinput = JOptionPane.showInputDialog("Hoeveel cijfers na de komma?");
 				properties.setCijfersNaKomma(Integer.parseInt(userinput));
 			}
@@ -152,10 +135,8 @@ public class TestCalculator
 			{
 				userinput = JOptionPane.showInputDialog("Wil je ook een tafel berekenen? (j/n)");
 				input = Character.toLowerCase(userinput.charAt(0));
-				if (input == 'j')
-				{
-					do
-					{
+				if (input == 'j') {
+					do {
 						userinput = JOptionPane
 								.showInputDialog("Welke tafel wil je berekenen? Geef een cijfer van 1 tot 9");
 						properties.setMultiplyTable(Integer.parseInt(userinput));
@@ -178,15 +159,13 @@ public class TestCalculator
 		// deze code maakt oefeningen aan, maar moet nog verplaatst worden naar
 		// Generator class en opgekuist worden (in Score moeten getal1 en getal2 nog weg
 		// misschien?)
-		
+
 		long startTime = System.currentTimeMillis();
 		Date currentDate = new Date();
 		stats.setDateOfTest(currentDate);
-		
-		if (tafelOefening)
-		{
-			for (int i = 1; i <= 10; i++)
-			{
+
+		if (tafelOefening) {
+			for (int i = 1; i <= 10; i++) {
 				double oplossing = calculator.result(i, tafel, '*');
 				score.setOplossing(oplossing);
 				userinput = JOptionPane.showInputDialog("Hoeveel is " + i + "*" + tafel + " ?");
@@ -197,14 +176,13 @@ public class TestCalculator
 			}
 			stats.setSelections("Tafel van " + tafel);
 		}
-		
+
 		else {
-			for (int i = 0; i < properties.getNumberOfExercises(); i++)
-			{
+			for (int i = 0; i < properties.getNumberOfExercises(); i++) {
 				int index = random.nextInt(properties.getCalculations().size());
 				char calculation = properties.getCalculations().get(index);
 				double randomgetal1 = generator.RandomGetal(properties);
-				double randomgetal2 = generator.ControleerGetal(generator.RandomGetal(properties),calculation);
+				double randomgetal2 = generator.ControleerGetal(generator.RandomGetal(properties), calculation);
 				double result = calculator.result(randomgetal1, randomgetal2, calculation);
 				score.setOplossing(result);
 				userinput = JOptionPane.showInputDialog("Oefening " + (i + 1) + "/" + properties.getNumberOfExercises()
