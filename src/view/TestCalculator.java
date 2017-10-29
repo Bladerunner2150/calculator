@@ -3,6 +3,7 @@
  */
 package view;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,8 +34,9 @@ public class TestCalculator {
 
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Random random = new Random();
 		char input;
 		String userinput = " ";
@@ -228,6 +230,8 @@ public class TestCalculator {
 		long elapsedTimeInSeconds = (System.currentTimeMillis() - startTime) / 1000;
 		stats.setDuration(elapsedTimeInSeconds); // dit eventueel nog omzetten naar minuten en seconden
 		stats.setFinalResult(score.getAantalJuisteAntwoorden() + "/" + score.getScoreList().size());
+		File f = new File("test.txt");
+		OutStats.ListOut(f, score.getScoreList());
 		JOptionPane.showMessageDialog(null, score.toString());
 		JOptionPane.showMessageDialog(null, stats.toString());
 	}

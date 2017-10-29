@@ -101,14 +101,14 @@ public class OutStats {
 				+ getSelections() + separator + "Final result: " + getFinalResult();
 	}
 
-	public void ListOut(File f, ArrayList<Score> e) throws IOException {
+	public static void ListOut(File f, ArrayList<Score> e) throws IOException {
 		FileOutputStream fileOutputStream = new FileOutputStream(f);
 		@SuppressWarnings({ "unused", "resource" })
 		ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 		objectOutputStream.writeObject(e);
 	}
 
-	public ArrayList<Score> LijstInlezen(File file) throws ClassNotFoundException, IOException {
+	public static ArrayList<Score> LijstInlezen(File file) throws ClassNotFoundException, IOException {
 		FileInputStream fileInputStream = new FileInputStream(file);
 		@SuppressWarnings("resource")
 		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
