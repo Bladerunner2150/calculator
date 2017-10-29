@@ -6,8 +6,6 @@ package util;
 import java.text.DecimalFormat;
 import java.util.Random;
 
-import com.sun.javafx.charts.ChartLayoutAnimator;
-
 import model.InProperties;
 
 /**
@@ -43,23 +41,9 @@ public class Generator {
 		return a;
 	}
 
-	// functie om een random geheel getal te geven wanneer iemand geen bereik
-	// instelt
-	// dan zet ik het op maximum tot 100
-	private int randomGeheelGetal() {
-		int a = randomGeheelGetal(101);
-		return a;
-	}
-
 	private double randomReëlGetal(int bereik) {
 		double a = rand.nextDouble();
 		a += randomGeheelGetal(bereik);
-		return a;
-	}
-
-	private double randomReëlGetal() {
-		double a = rand.nextDouble();
-		a += randomGeheelGetal(101);
 		return a;
 	}
 
@@ -71,21 +55,9 @@ public class Generator {
 	}
 	// method overloading voor negatief getal zonder bereik
 
-	private int randomNegatiefGeheelGetal() {
-		int a = randomGeheelGetal(101) * (-1);
-		return a;
-	}
-
 	// negatief reël getal genereren met opgesteld bereik
 	private double randomNegatiefReëlGetal(int bereik) {
 		double a = randomReëlGetal(bereik) * (-1);
-		return a;
-	}
-
-	// negatief reël getal genereren zonder bereik
-	@SuppressWarnings("unused")
-	private double randomNegatiefReëlGetal() {
-		double a = randomReëlGetal(101) * (-1);
 		return a;
 	}
 

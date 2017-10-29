@@ -3,7 +3,6 @@
  */
 package view;
 
-import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

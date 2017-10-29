@@ -108,6 +108,7 @@ public class OutStats {
 		objectOutputStream.writeObject(e);
 	}
 
+
 	public static ArrayList<Score> LijstInlezen(File file) throws ClassNotFoundException, IOException {
 		FileInputStream fileInputStream = new FileInputStream(file);
 		@SuppressWarnings("resource")
@@ -118,5 +119,7 @@ public class OutStats {
 		return f;
 
 	}
+	
+	
 
 }
