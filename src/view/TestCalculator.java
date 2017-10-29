@@ -135,18 +135,18 @@ public class TestCalculator {
 				properties.setCijfersNaKomma(Integer.parseInt(userinput));
 			}
 
-			if (bewerkingen.contains('*')) // test om te kijken of vermenigvuldigingen in lijst bewerkingen zitten
-			{
-				userinput = JOptionPane.showInputDialog("Wil je ook een tafel berekenen? (j/n)");
-				input = Character.toLowerCase(userinput.charAt(0));
-				if (input == 'j') {
-					do {
-						userinput = JOptionPane
-								.showInputDialog("Welke tafel wil je berekenen? Geef een cijfer van 1 tot 9");
-						properties.setMultiplyTable(Integer.parseInt(userinput));
-					} while (properties.getMultiplyTable() < 1 || properties.getMultiplyTable() > 9);
-				}
-			}
+//			if (bewerkingen.contains('*')) // test om te kijken of vermenigvuldigingen in lijst bewerkingen zitten
+//			{
+//				userinput = JOptionPane.showInputDialog("Wil je ook een tafel berekenen? (j/n)");
+//				input = Character.toLowerCase(userinput.charAt(0));
+//				if (input == 'j') {
+//					do {
+//						userinput = JOptionPane
+//								.showInputDialog("Welke tafel wil je berekenen? Geef een cijfer van 1 tot 9");
+//						properties.setMultiplyTable(Integer.parseInt(userinput));
+//					} while (properties.getMultiplyTable() < 1 || properties.getMultiplyTable() > 9);
+//				}
+//			}
 
 			userinput = JOptionPane.showInputDialog("Hoeveel oefeningen wil je maken?");
 			properties.setNumberOfExercises(Integer.parseInt(userinput));
@@ -232,6 +232,7 @@ public class TestCalculator {
 		stats.setFinalResult(score.getAantalJuisteAntwoorden() + "/" + score.getScoreList().size());
 		File f = new File("test.txt");
 		OutStats.ListOut(f, score.getScoreList());
+		//OutStats.ListOut(f, stats.toString()); // eventueel input parameter van ListOut op String zetten
 		JOptionPane.showMessageDialog(null, score.toString());
 		JOptionPane.showMessageDialog(null, stats.toString());
 	}
