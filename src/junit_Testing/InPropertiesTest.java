@@ -1,0 +1,40 @@
+package junit_Testing;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import model.InProperties;
+
+public class InPropertiesTest
+{
+
+	private static InProperties c;
+	
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception
+	{
+		c = new InProperties();
+		Random random = new Random();
+		List<Character> calculations = Arrays.asList('+', '-', '/', '*');
+		c.setRangeOfNumbers(random.nextInt(100));
+		c.setCijfersNaKomma(random.nextInt(10));
+		c.setNaturalNumbers(random.nextBoolean());
+		c.setPositiveNumbers(random.nextBoolean());
+		c.setNumberOfExercises(random.nextInt(100));
+		c.setCalculations(calculations);
+	}
+
+	@Test
+	public void testWritePropertiesFile()
+	{
+		InProperties.writePropertiesFile(c);
+	}
+
+}

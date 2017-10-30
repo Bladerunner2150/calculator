@@ -129,7 +129,7 @@ public class InProperties
 		this.numberOfExercises = numberOfExercises;
 	}
 	
-	public void writePropertiesFile(InProperties properties)
+	public static void writePropertiesFile(InProperties properties)
 	{
 		Properties props = new Properties();
 		props.setProperty("range", String.valueOf(properties.getRangeOfNumbers()));
