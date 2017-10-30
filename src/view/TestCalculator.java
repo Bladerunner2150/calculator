@@ -167,23 +167,6 @@ public class TestCalculator
 				properties.setCijfersNaKomma(Integer.parseInt(userinput));
 			}
 
-			// if (bewerkingen.contains('*')) // test om te kijken of vermenigvuldigingen in
-			// lijst bewerkingen zitten
-			// {
-			// userinput = JOptionPane.showInputDialog("Wil je ook een tafel berekenen?
-			// (j/n)");
-			// input = Character.toLowerCase(userinput.charAt(0));
-			// if (input == 'j') {
-			// do {
-			// userinput = JOptionPane
-			// .showInputDialog("Welke tafel wil je berekenen? Geef een cijfer van 1 tot
-			// 9");
-			// properties.setMultiplyTable(Integer.parseInt(userinput));
-			// } while (properties.getMultiplyTable() < 1 || properties.getMultiplyTable() >
-			// 9);
-			// }
-			// }
-
 			userinput = JOptionPane.showInputDialog("Hoeveel oefeningen wil je maken?");
 			properties.setNumberOfExercises(Integer.parseInt(userinput));
 
@@ -222,9 +205,7 @@ public class TestCalculator
 			break;
 		}
 
-		// deze code maakt oefeningen aan, maar moet nog verplaatst worden naar
-		// Generator class en opgekuist worden (in Score moeten getal1 en getal2 nog weg
-		// misschien?)
+		// deze code maakt oefeningen aan
 
 		long startTime = System.currentTimeMillis();
 		Date currentDate = new Date();
@@ -260,8 +241,6 @@ public class TestCalculator
 				double answer = Double.parseDouble(userinput);
 				score.setUserGetal(answer);
 
-				// onderstaande regels kunnen misschien vereenvoudigd worden, misschien met
-				// factory of zo, of getters en setters?
 				score.AddScore(score);
 				JOptionPane.showMessageDialog(null, score.compareScore(score));
 			}
@@ -272,8 +251,6 @@ public class TestCalculator
 		stats.setFinalResult(score.getAantalJuisteAntwoorden() + "/" + score.getScoreList().size());
 		File f = new File("test.txt");
 		OutStats.ListOut(f, score.getScoreList());
-		// OutStats.ListOut(f, stats.toString()); // eventueel input parameter van
-		// ListOut op String zetten
 		JOptionPane.showMessageDialog(null, score.toString());
 		JOptionPane.showMessageDialog(null, stats.toString());
 	}
