@@ -6,7 +6,13 @@ import org.junit.Test;
 
 import model.InProperties;
 import util.Generator;
-
+/**
+ * @author Bart Taelemans & Thomas Vanden Bossche
+ * @date 9 okt. 2017
+ * @project Calculator
+ * @purpose Methods for calculating
+ *
+ */
 public class GeneratorTEST {
 	@SuppressWarnings("unused")
 	
