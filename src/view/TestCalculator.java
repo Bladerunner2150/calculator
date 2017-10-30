@@ -103,7 +103,6 @@ public class TestCalculator
 				bewerkingen.add(input);
 			}
 			properties.setCalculations(bewerkingen);
-			properties.setMultiplyTable(Integer.parseInt(props.getProperty("multiplytable")));
 			properties.setNumberOfExercises(Integer.parseInt(props.getProperty("numberofexercises")));
 			break;
 		case "2":
@@ -182,7 +181,6 @@ public class TestCalculator
 				calcs += character;
 			}
 			props.setProperty("calc", calcs);
-			props.setProperty("multiplytable", String.valueOf(properties.getMultiplyTable()));
 			props.setProperty("numberofexercises", String.valueOf(properties.getNumberOfExercises()));
 			try
 			{

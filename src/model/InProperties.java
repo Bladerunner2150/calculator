@@ -18,8 +18,7 @@ public class InProperties
 	private boolean positiveNumbers;
 	private boolean naturalNumbers;
 	private int cijfersNaKomma;
-	private List<Character> calculations /* = Arrays.asList('+', '-', '/', '*', '^') */;
-	private int multiplyTable; // deze property nog bekijken, user input vragen in main
+	private List<Character> calculations;
 	private int numberOfExercises;
 	private String separator = System.lineSeparator();
 
@@ -109,23 +108,6 @@ public class InProperties
 	}
 
 	/**
-	 * @return the multiplyTable
-	 */
-	public int getMultiplyTable()
-	{
-		return multiplyTable;
-	}
-
-	/**
-	 * @param multiplyTable
-	 *            the multiplyTable to set
-	 */
-	public void setMultiplyTable(int multiplyTable)
-	{
-		this.multiplyTable = multiplyTable;
-	}
-
-	/**
 	 * @return the numberOfExercises
 	 */
 	public int getNumberOfExercises()
@@ -153,8 +135,7 @@ public class InProperties
 		return "Range: " + getRangeOfNumbers() + separator + "Positive numbers only: " + isPositiveNumbers() + separator
 				+ "Natural numbers only: " + isNaturalNumbers() + separator + "Numbers after decimal point: "
 				+ getCijfersNaKomma() + separator + "Calculations: " + getCalculations() + separator
-				+ "Multiply table: " + getMultiplyTable() + separator + "Number of exercises: "
-				+ getNumberOfExercises();
+				+ "Number of exercises: " + getNumberOfExercises();
 	}
 
 }
