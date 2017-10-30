@@ -8,7 +8,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Bart Taelemans & Thomas Vanden Bossche
  * @date 9 okt. 2017
  * @project Calculator
- * @purpose Methods for calculating
+ * @purpose Run all tests
  *
  */
 @RunWith(Suite.class)

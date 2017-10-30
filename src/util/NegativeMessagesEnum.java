@@ -4,14 +4,17 @@
 package util;
 
 /**
- * @author Thomas
+ * @author Bart Taelemans & Thomas Vanden Bossche
+ * @date 9 okt. 2017
+ * @project Calculator
+ * @purpose Generate error messages
  *
  */
 public enum NegativeMessagesEnum {
 	bericht1("Helaas dit is niet correct"),
 	bericht2("Niet juist, Spijtig"),
 	bericht3("Sorry dit is fout "), 
-	bericht4("Lozer");
+	bericht4("Jammer, mispoes");
 	// enumeratie om berichten bij een foute oplossing te tonen
 
 	public String tekst;

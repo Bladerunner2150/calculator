@@ -4,7 +4,10 @@
 package util;
 
 /**
- * @author Thomas
+ * @author Bart Taelemans & Thomas Vanden Bossche
+ * @date 9 okt. 2017
+ * @project Calculator
+ * @purpose Generate correct messages
  *
  */
 public enum PositiveMessagesEnum {
