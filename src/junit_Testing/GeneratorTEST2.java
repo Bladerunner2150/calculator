@@ -48,5 +48,9 @@ public class GeneratorTEST2 {
 		Generator.NegatieveBoodschap();
 
 	}
+	
+	@Test 
+	
+	public double f
 
 }
