@@ -14,15 +14,11 @@ public class GeneratorTEST2 {
 	public void testRandomGetal() {
 		InProperties c = new InProperties();
 		Random random = new Random();
-		int r = c.getRangeOfNumbers();
-		int a = 6;
-		a = c.getCijfersNaKomma();
-		boolean g = random.nextBoolean();
-		g = c.isNaturalNumbers();
-		boolean f = random.nextBoolean();
-		f = c.isPositiveNumbers();
-		int v = 100;
-		v = c.getNumberOfExercises();
+		c.setRangeOfNumbers(random.nextInt(100));
+		c.setCijfersNaKomma(random.nextInt(10));
+		c.setNaturalNumbers(random.nextBoolean());
+		c.setPositiveNumbers(random.nextBoolean());
+		c.setNumberOfExercises(random.nextInt(100));
 		Generator generator = new Generator();
 		double t = generator.RandomGetal(c);
 
