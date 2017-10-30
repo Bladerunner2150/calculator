@@ -170,29 +170,7 @@ public class TestCalculator
 			properties.setNumberOfExercises(Integer.parseInt(userinput));
 
 			// wegschrijven naar properties file
-			props = new Properties();
-			props.setProperty("range", String.valueOf(properties.getRangeOfNumbers()));
-			props.setProperty("positive", String.valueOf(properties.isPositiveNumbers()));
-			props.setProperty("natural", String.valueOf(properties.isNaturalNumbers()));
-			props.setProperty("decimals", String.valueOf(properties.getCijfersNaKomma()));
-			String calcs = "";
-			for (Character character : properties.getCalculations())
-			{
-				calcs += character;
-			}
-			props.setProperty("calc", calcs);
-			props.setProperty("numberofexercises", String.valueOf(properties.getNumberOfExercises()));
-			try
-			{
-				FileOutputStream output = new FileOutputStream("calculatorDefault.properties");
-				props.store(output, "Opgeslagen selecties");
-				output.close();
-
-			} catch (IOException e)
-			{
-				JOptionPane.showMessageDialog(null, e.getMessage());
-			}
-
+			properties.writePropertiesFile(properties);
 			break;
 		case "3":
 			tafelOefening = true;
