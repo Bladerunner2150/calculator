@@ -270,7 +270,7 @@ public class TestCalculator
 		long elapsedTimeInSeconds = (System.currentTimeMillis() - startTime) / 1000;
 		stats.setDuration(elapsedTimeInSeconds); // dit eventueel nog omzetten naar minuten en seconden
 		stats.setFinalResult(score.getAantalJuisteAntwoorden() + "/" + score.getScoreList().size());
-		File f = new File("test.txt");
+		File f = new File("test.ser");
 		OutStats.ListOut(f, score.getScoreList());
 		// OutStats.ListOut(f, stats.toString()); // eventueel input parameter van
 		// ListOut op String zetten
