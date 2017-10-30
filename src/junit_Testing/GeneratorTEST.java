@@ -7,7 +7,7 @@ import org.junit.Test;
 import model.InProperties;
 import util.Generator;
 
-public class GeneratorTEST2 {
+public class GeneratorTEST {
 	@SuppressWarnings("unused")
 	
 	@Test

@@ -169,7 +169,7 @@ public class TestCalculator
 			properties.setNumberOfExercises(Integer.parseInt(userinput));
 
 			// wegschrijven naar properties file
-			properties.writePropertiesFile(properties);
+			InProperties.writePropertiesFile(properties);
 			break;
 		case "3":
 			tafelOefening = true;
