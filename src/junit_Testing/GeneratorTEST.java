@@ -21,7 +21,7 @@ public class GeneratorTEST {
 		InProperties c = new InProperties();
 		Random random = new Random();
 		c.setRangeOfNumbers(random.nextInt(100));
-		c.setCijfersNaKomma(random.nextInt(10));
+		c.setCijfersNaKomma(random.nextInt(6));
 		c.setNaturalNumbers(random.nextBoolean());
 		c.setPositiveNumbers(random.nextBoolean());
 		c.setNumberOfExercises(random.nextInt(100));
