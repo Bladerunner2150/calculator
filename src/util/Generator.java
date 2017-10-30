@@ -69,8 +69,7 @@ public class Generator {
 		double g = 0;
 
 		if (c.isPositiveNumbers() == true && c.isNaturalNumbers() == true) {
-			a = randomGeheelGetal(c.getRangeOfNumbers());
-			g = a;
+			g = randomGeheelGetal(c.getRangeOfNumbers());
 		}
 
 		if (c.isPositiveNumbers() == false && c.isNaturalNumbers() == true) {
@@ -78,12 +77,10 @@ public class Generator {
 			keuze = rand.nextInt(2);
 			switch (keuze) {
 			case 0:
-				a = randomGeheelGetal(c.getRangeOfNumbers());
-				g = a;
+				g = randomGeheelGetal(c.getRangeOfNumbers());
 				break;
 			case 1:
-				a = randomNegatiefGeheelGetal(c.getRangeOfNumbers());
-				g = a;
+				g = randomNegatiefGeheelGetal(c.getRangeOfNumbers());
 				break;
 			}
 		}
