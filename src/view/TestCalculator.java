@@ -30,7 +30,7 @@ import util.Score;
  *
  */
 public class TestCalculator
-{
+{ 
 
 	/**
 	 * @param args
